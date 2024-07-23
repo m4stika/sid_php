@@ -1,0 +1,145 @@
+/* here you can put your own css to customize and override the theme */
+@charset "UTF-8";
+body, h1, h2, h3, h4, h5, h6 {
+	font-family: Helvetica, Arial, sans-serif;
+  /*font-family: Verdana, Geneva, sans-serif; */
+  /*font-family: 'Roboto', sans-serif;*/
+	/*font-family: 'Baloo Tamma', cursive;*/
+}
+
+.colspan-center { text-align: center; }
+table > thead > tr > .rowspan-center { vertical-align:middle; }
+
+.no-gutter {
+	padding-right: 5px !important;
+  	padding-left: 5px !important;
+  	margin-top: 10px !important;
+  	margin-bottom: 10px !important;
+}
+.no-padding {
+  padding-right: 2px !important;
+  padding-left: 2px !important;
+}
+
+.no-margin {
+  padding-right: 1px !important;
+    padding-left: 1px !important;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+.col-sm-1.mod {
+width: 1% !important;
+}
+.col-sm-2.mod {
+width: 16% !important;
+}
+.col-sm-3.mod {
+width: 24% !important;
+}
+.col-sm-4.mod {
+width: 31.33333333% !important;
+}
+.col-sm-4.addpading {
+  	padding-bottom: 15px !important;
+	padding-top: 15px !important;
+}
+
+.md-checkbox.mod {
+  	padding-bottom: 15px !important;
+	padding-top: 15px !important;
+}
+
+.large-xl {
+    margin: 0 auto;
+    width: 70% !important;
+}
+
+.table .heading th {
+  background-color: #32C5D2 !important;
+  color: #FAFAFA;
+  padding:12px;
+}
+.table .footer th {
+  background-color: white !important;
+  border-top: 2px solid #32C5D2;
+  color: #22313F;
+  padding:5px;
+}
+
+.table-responsive, .dataTables_scrollBody{
+  overflow-x: visible;
+  overflow-y: visible;
+}
+
+
+/*.table .detail {
+  width: 90% !important;
+  margin-left: 20px !important;
+  margin-right: 30px !important;
+}*/
+
+.table .flat th {
+  background-color: #E5E5E5 !important;
+  color: #22313F;
+  padding:10px;
+}
+
+tr.details td.details, td.details .dataTables_wrapper {
+  padding: 0;
+  margin: 0;
+}
+
+table .dataTable {  
+  border: 1px solid #32C5D2;
+  padding-top: 1px;
+  width: 90%;
+}
+
+.table-toolbar {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+/*table .no-margin, .dataTables_wrapper, .table-responsive.no-margin {
+  margin-top: 1px !important;
+  padding-top: 1px !important;
+}*/
+
+
+.numeric {
+  text-align: right;
+  font-weight: bold;
+}
+
+label.caption {
+  padding-top: 5px;
+  padding-left: 0;
+  margin-left: 0;
+  text-align: left;
+}
+div.form-groupx {
+  padding-top: 0;
+  padding-left: 0;
+  margin-left: 0;
+  text-align: left;
+}
+
+td.details-control {
+    background: url("../../../pages/img/plus.png") no-repeat center center;
+    cursor: pointer;
+}
+.shown td.details-control {
+    background: url("../../../pages/img/minus.png") no-repeat center center;
+}
+
+th, td {
+white-space: nowrap;
+}
+
+div.dataTables_scrollBody thead th{
+line-height: 0;
+opacity:0.0;
+width: 0px;
+height:0px;
+}

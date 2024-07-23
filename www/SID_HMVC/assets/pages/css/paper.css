@@ -1,0 +1,71 @@
+@page { margin: auto }
+body { margin: auto; /*letter-spacing:-1px;*/}
+.sheet {
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  page-break-after: always;
+}
+
+/** Paper sizes **/
+/*body.A3           .sheet { width: 297mm; height: 419mm }
+body.A3.landscape .sheet { width: 420mm; height: 296mm }
+body.A4           .sheet { width: 210mm; height: 296mm }
+body.A4.landscape .sheet { width: 297mm; height: 209mm }
+body.A5           .sheet { width: 148mm; height: 209mm }
+body.A5.landscape .sheet { width: 210mm; height: 147mm }*/
+
+body.A4           { width: 210mm; min-height:296mm;}
+body.A4.landscape { width: 297mm; min-height:209mm;}
+body.A5           { width: 148mm; min-height:209mm;}
+body.A5.landscape { width: 210mm; min-height:147mm;}
+
+table.A4 { border-collapse:collapse; border: .3px solid #969696;  width: 100%; text-align: left;}
+table.A4.landscape { border-collapse:collapse; border: .3px solid #969696; width: 297mm; text-align: left;}
+
+
+
+/** Padding area **/
+.sheet.padding-10mm { padding: 10mm }
+.sheet.padding-15mm { padding: 15mm }
+.sheet.padding-20mm { padding: 20mm }
+.sheet.padding-25mm { padding: 25mm }
+
+/** For screen preview **/
+@media screen {
+  html {background: #555555;}
+  body {
+    background: white; 
+    box-shadow: 0 .5mm 2mm rgba(0,0,0,.3); 
+    position: relative;
+    margin: 10mm auto 1mm auto;
+    padding: 5mm;
+    display: table;
+    /*overflow: scroll;*/
+    /*height: auto;*/
+    /*padding: 10px;*/
+  }
+  .sheet {
+    background: white;
+    box-shadow:  0 .5mm 2mm rgba(0,0,0,.3);
+    margin: 5mm;
+  }
+}
+
+/** Fix for Chrome issue #273306 **/
+@media print {
+  .no-print, #slideout {display: none;}
+ /* div { float: none !important; position: static !important; display: inline; 
+          box-sizing: content-box !important; 
+    }
+
+  .grandtotal {
+    page-break-after: always;
+  }*/
+  body {padding: 0;margin-top: 0; background-color: white;}
+           body.A3.landscape { width: 420mm }
+  body.A3, body.A4.landscape { width: 297mm }
+  body.A4, body.A5.landscape { width: 210mm }
+  body.A5                    { width: 148mm }
+}
