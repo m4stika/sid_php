@@ -1,4 +1,4 @@
-version: "3.8"
+# version: "3.8"
 
 services:
   # sid_mysql:
@@ -38,7 +38,7 @@ services:
   #     timeout: 10s
   #     retries: 3
 
-  php-web:
+  php_web:
     container_name: php_web
     restart: unless-stopped
     image: php:7.0-apache
@@ -46,11 +46,11 @@ services:
     #   context: .
     #   dockerfile: Dockerfile
     ports:
-      - 80:80
-    # networks:
-    #   - sid_network
+      - 8081:80
+    networks:
+      - kda_network
     volumes:
-      - ./www:/var/www/html
+      - ./www/SID_HMVC/:/var/www/html
       - ./conf/apache.conf:/etc/apache2/sites-enabled
     environment:
       - ALLOW_OVERRIDE=true
@@ -59,6 +59,20 @@ services:
     #     condition: service_healthy
     command: "/bin/sh -c 'docker-php-ext-install mysqli && a2enmod rewrite && exec apache2-foreground '"
 
+  # php_nginx:
+  #   container_name: php_nginx
+  #   image: nginx:stable-alpine
+  #   ports:
+  #     - "80:80"
+  #   volumes:
+  #     - ./www:/var/www/html/
+  #     - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+  #   depends_on:
+  #     - php_web
+
+  # adminer:
+  #   image: adminer:4
+  #   container_name: adminer
   # adminer:
   #   image: adminer:4
   #   container_name: adminer
@@ -75,16 +89,8 @@ services:
 #     name: sid_network
 # volumes:
 #   mysql_db:
-
-# nginx:
-#     image: nginx
-#     container_name: nginx
-#     ports:
-#        - "80:80"
-#     volumes:
-#        - ./www:/var/www/html/
-#        - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-#    depends_on:
-#        - php-httpd
-
+networks:
+  kda_network:
+    external: true
+    name: kda_network
 # https://github.com/abhishek70/docker-linux-codeigniter-mysql/tree/master
